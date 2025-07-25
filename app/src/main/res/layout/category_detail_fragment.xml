@@ -146,7 +146,6 @@
                 android:id="@+id/main_in_chart"
                 android:layout_width="60dp"
                 android:layout_height="38dp"
-                android:background="#"
                 android:text="국내주식"
                 android:textColor="#000000"
                 android:textSize="16dp"
@@ -161,7 +160,6 @@
                 android:id="@+id/main_out_chart"
                 android:layout_width="60dp"
                 android:layout_height="38dp"
-                android:background="#"
                 android:text="해외주식"
                 android:textColor="#AAAAAA"
                 android:textSize="16dp"
@@ -250,7 +248,7 @@
                     android:layout_height="wrap_content"
                     android:text="순위"
                     android:textColor="#908F8F"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -262,11 +260,11 @@
                     android:layout_height="wrap_content"
                     android:text="종목명"
                     android:textColor="#908F8F"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/chart_num"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="13dp"/>
+                    android:layout_marginStart="22dp"/>
 
                 <TextView
                     android:id="@+id/chart_now_price"
@@ -274,11 +272,12 @@
                     android:layout_height="wrap_content"
                     android:text="현재가"
                     android:textColor="#908F8F"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     app:layout_constraintStart_toEndOf="@id/chart_name"
                     app:layout_constraintEnd_toStartOf="@id/chart_critics"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="31dp"/>
 
                 <TextView
                     android:id="@+id/chart_critics"
@@ -286,11 +285,12 @@
                     android:layout_height="wrap_content"
                     android:text="평단"
                     android:textColor="#908F8F"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     app:layout_constraintStart_toEndOf="@id/chart_now_price"
                     app:layout_constraintEnd_toStartOf="@id/chart_average_return"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="5dp"/>
 
                 <TextView
                     android:id="@+id/chart_average_return"
@@ -298,11 +298,13 @@
                     android:layout_height="wrap_content"
                     android:text="평균수익률"
                     android:textColor="#908F8F"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     app:layout_constraintStart_toEndOf="@id/chart_critics"
                     app:layout_constraintEnd_toStartOf="@id/chart_volume_power"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="-15dp"/>
 
                 <TextView
                     android:id="@+id/chart_volume_power"
@@ -310,7 +312,7 @@
                     android:layout_height="wrap_content"
                     android:text="체결강도"
                     android:textColor="#908F8F"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -320,13 +322,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ListView
+                android:id="@+id/chart_lv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="600dp"
                 app:layout_constraintTop_toBottomOf="@id/main_chart_category"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="40dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

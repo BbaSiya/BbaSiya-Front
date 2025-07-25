@@ -6,7 +6,7 @@ plugins {
 android {
     namespace = "com.example.bbasia"
     compileSdk = 34
-
+    viewBinding.isEnabled = true
     defaultConfig {
         applicationId = "com.example.bbasia"
         minSdk = 34

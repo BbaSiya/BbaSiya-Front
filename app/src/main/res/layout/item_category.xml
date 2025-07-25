@@ -71,6 +71,7 @@
             </androidx.cardview.widget.CardView>
 
             <ImageView
+                android:id="@+id/item_category_iv"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="#FFFFFF"
