@@ -1,6 +1,7 @@
 package com.example.bbasia
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
 
 class ChartAdapter(
     context: Context,
@@ -20,7 +22,7 @@ class ChartAdapter(
 ) : ArrayAdapter<ChartItem>(context, 0, items) {
 
     private var selectedPosition: Int? = null
-    private val newsCache = mutableMapOf<Int, StockNewsResponse>()
+    private val newsCache = mutableMapOf<String, StockNewsResponse>()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = convertView ?: LayoutInflater.from(context)
@@ -54,44 +56,44 @@ class ChartAdapter(
                 chartCl.visibility = View.VISIBLE
             }
 
-            val cached = newsCache[item.id.toInt()]
-            if (cached != null) {
-                chartNewsTv.text = cached.news
-                chartNewsBs.text = "${cached.bs}%,"
-                chartNewsGood.text = cached.eq.toString()
-                if (cached.bs > 60) {
-                    chartNewsGoodIcon.text = "☺️"
-                } else if (cached.bs > 30) {
-                    chartNewsGoodIcon.text = "😐"
-                } else {
-                    chartNewsGoodIcon.text = "😢"
-                }
-            } else {
-                chartNewsTv.text = "뉴스 로딩 중..."
-                chartNewsBs.text = ""
-                chartNewsGood.text = ""
-
-                CoroutineScope(Dispatchers.IO).launch {
-                    try {
-                        val response = apiService.getStockNews(item.id.toInt(), userId)
-                        val newsData = response.firstOrNull()
-                        withContext(Dispatchers.Main) {
-                            if (newsData != null && position == selectedPosition) {
-                                chartNewsTv.text = newsData.news
-                                chartNewsBs.text = newsData.bs.toString()
-                                chartNewsGood.text = newsData.eq.toString()
-                                newsCache[item.id.toInt()] = newsData
-                            } else {
-                                chartNewsTv.text = "뉴스 없음"
+            // CoroutineScope, suspend 함수 제거
+            apiService.getStockNews(item.id, userId).enqueue(object : retrofit2.Callback<StockNewsResponse> {
+                override fun onResponse(call: Call<StockNewsResponse>, response: retrofit2.Response<StockNewsResponse>) {
+                    if (response.isSuccessful) {
+                        val newsData = response.body()
+                        if (newsData != null) {
+                            chartNewsTv.text = newsData.news
+                            chartNewsBs.text = "${newsData.bs}%"
+                            chartNewsGood.text = newsData.eq.toString()
+                            chartNewsGoodIcon.text = when {
+                                newsData.eq > 60 -> "☺️"
+                                newsData.eq > 30 -> "😐"
+                                newsData.eq > 0 -> "😢"
+                                else -> " "
                             }
+                            newsCache[item.id] = newsData
+                        } else {
+                            chartNewsTv.text = "뉴스 없음"
+                            chartNewsBs.text = ""
+                            chartNewsGood.text = ""
+                            chartNewsGoodIcon.text = ""
                         }
-                    } catch (e: Exception) {
-                        withContext(Dispatchers.Main) {
-                            chartNewsTv.text = "불러오기 실패"
-                        }
+                    } else {
+                        chartNewsTv.text = "뉴스 없음"
+                        chartNewsBs.text = ""
+                        chartNewsGood.text = ""
+                        chartNewsGoodIcon.text = ""
                     }
                 }
-            }
+
+                override fun onFailure(call: Call<StockNewsResponse>, t: Throwable) {
+                    Log.e("News", "Error fetching news", t)
+                    chartNewsTv.text = "불러오기 실패"
+                    chartNewsBs.text = ""
+                    chartNewsGood.text = ""
+                    chartNewsGoodIcon.text = ""
+                }
+            })
         } else {
             if (chartCl.visibility == View.VISIBLE) {
                 val slideUp = AnimationUtils.loadAnimation(context, R.anim.slide_up)
@@ -103,9 +105,7 @@ class ChartAdapter(
         chartNews.setOnClickListener {
             val prevSelected = selectedPosition
             selectedPosition = if (selectedPosition == position) null else position
-            if (prevSelected != null && prevSelected != position) {
-                notifyDataSetChanged()
-            }
+
             notifyDataSetChanged()
         }
 

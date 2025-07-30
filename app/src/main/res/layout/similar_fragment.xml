@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:text="HD현대 중공업"
         android:textSize="28dp"
-        android:textColor="#F48728"
+        android:textColor="#F58220"
         app:layout_constraintTop_toBottomOf="@id/similar_tv2"
         app:layout_constraintStart_toStartOf="@id/similar_tv2"/>
 
@@ -173,6 +173,7 @@
                 android:layout_marginTop="2dp"/>
 
             <TextView
+                android:id="@+id/similar_news"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="&quot;HD현대, 올 2분기 HD현대그룹 상장사 중 관심도 1위...현대중공업 뒤이어&quot;"
@@ -189,7 +190,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/similar_cv2"
         android:layout_width="0dp"
-        android:layout_height="330dp"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/similar_cv1"
         app:layout_constraintStart_toStartOf="parent"
@@ -200,7 +201,8 @@
         app:strokeWidth="3px"
         app:strokeColor="#F48728"
         android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp">
+        android:layout_marginEnd="25dp"
+        app:contentPaddingBottom="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -210,13 +212,13 @@
                 android:id="@+id/similar_cv2_tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
                 android:text="현재 "
                 android:textSize="14dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="10dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv2"
@@ -225,9 +227,9 @@
                 android:text="HD현대 중공업"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1"
+                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"
                 app:layout_constraintStart_toEndOf="@id/similar_cv2_tv1"
-                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"/>
+                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv3"
@@ -236,21 +238,21 @@
                 android:text="의 BS지수는 "
                 android:textSize="14dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1"
+                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"
                 app:layout_constraintStart_toEndOf="@id/similar_cv2_tv2"
-                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"/>
+                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="86"
+                android:textColor="#F48728"
                 android:textSize="15dp"
                 android:textStyle="bold"
-                android:textColor="#F48728"
-                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1"
+                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"
                 app:layout_constraintStart_toEndOf="@id/similar_cv2_tv3"
-                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"/>
+                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv5"
@@ -259,52 +261,53 @@
                 android:text="입니다"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1"
+                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"
                 app:layout_constraintStart_toEndOf="@id/similar_cv2_tv4"
-                app:layout_constraintBottom_toBottomOf="@id/similar_cv2_tv1"/>
+                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv1" />
 
             <ImageView
                 android:id="@+id/similar_cv2_line"
                 android:layout_width="0dp"
                 android:layout_height="3px"
+                android:layout_marginTop="2dp"
                 android:background="#F48728"
-                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv1"
-                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv1"
                 app:layout_constraintEnd_toEndOf="@id/similar_cv2_tv5"
-                android:layout_marginTop="2dp"/>
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv1"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv1" />
 
-            <ImageView
+            <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/similar_cv2_iv1"
                 android:layout_width="0dp"
-                android:layout_height="130dp"
-                app:layout_constraintStart_toStartOf="@id/similar_cv2_line"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/similar_cv2_line"
+                android:layout_height="230dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
-                android:background="#AAAAAA"
-                android:layout_marginTop="15dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_line"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_line" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/similar_cv2_iv1"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:text="비교 종목: "
                 android:textSize="14dp"
                 android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_iv1" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv7"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv6"
-                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv6"
+                android:layout_marginEnd="10dp"
                 android:text="JEPI, JEPQ, 코카콜라"
                 android:textSize="14dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv6"
+                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv6" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv8"
@@ -313,8 +316,8 @@
                 android:text="패턴 유사도: "
                 android:textSize="14dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv6"
-                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv6"/>
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv6"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv7" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv9"
@@ -322,20 +325,145 @@
                 android:layout_height="wrap_content"
                 android:text="80"
                 android:textSize="14dp"
-                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv8"
-                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv8"/>
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv8"
+                app:layout_constraintTop_toTopOf="@id/similar_cv2_tv8" />
 
             <TextView
                 android:id="@+id/similar_cv2_tv10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HD현대 중공업은 배당주로\n보유종목중 3중목이 배당주에 해당합니다.\nHD현대 중공업의 주 업종은 조선업으로\n보유종목중 0종목이 이에 해당합니다."
+                android:layout_marginEnd="10dp"
+                android:text="HD현대 중공업은 "
                 android:textSize="14dp"
-                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv8"
-                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv8"/>
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv8"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv8" />
 
+            <TextView
+                android:id="@+id/similar_cv2_tv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="배당주"
+                android:textSize="14dp"
+                android:textColor="#F48728"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv10"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv8" />
 
+            <TextView
+                android:id="@+id/similar_cv2_tv12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="로"
+                android:textSize="14dp"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv11"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv8" />
 
+            <TextView
+                android:id="@+id/similar_cv2_tv13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="보유종목중 "
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv10"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv10" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="3종목"
+                android:textSize="14dp"
+                android:textColor="#F48728"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv13"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv10" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="이 배당주에 해당합니다."
+                android:textSize="14dp"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv14"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv10" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="HD현대 중공업의 주 업종은 "
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv10"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv13" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="조선업"
+                android:textSize="14dp"
+                android:textColor="#F48728"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv16"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv13" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="으로"
+                android:textSize="14dp"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv17"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv13" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="보유종목중 "
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv16"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv16" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="0종목"
+                android:textSize="14dp"
+                android:textColor="#F48728"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv19"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv16" />
+
+            <TextView
+                android:id="@+id/similar_cv2_tv21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="이 이에 해당합니다."
+                app:layout_constraintStart_toEndOf="@id/similar_cv2_tv20"
+                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv16" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/similar_cv2_tv14"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:text="3중목이 배당주에 해당합니다.\nHD현대 중공업의 주 업종은 조선업으로\n보유종목중 0종목이 이에 해당합니다."-->
+<!--                android:textSize="14dp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/similar_cv2_tv8"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/similar_cv2_tv8" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -343,7 +471,23 @@
 
 
 
+    <FrameLayout
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F58220"
+        android:visibility="gone"
+        android:gravity="center">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="불러오는 중입니다..."
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

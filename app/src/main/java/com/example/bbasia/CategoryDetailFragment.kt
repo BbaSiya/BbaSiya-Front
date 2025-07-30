@@ -19,7 +19,7 @@ class CategoryDetailFragment : Fragment() {
 
     private lateinit var listView: ListView
     private lateinit var apiService: ApiService
-    private var userId: Int = 0
+    private var userId: Int = 2
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,9 +58,11 @@ class CategoryDetailFragment : Fragment() {
         callCategoryApi(categoryId)
 
 
+        this.userId = 2 // 실제 유저 ID로 수정 필요
+
         val similarBtn = view.findViewById<ImageButton>(R.id.main_similar_btn)
         similarBtn.setOnClickListener {
-            val dialog = SimilarFragment()
+            val dialog = SimilarFragment.newInstance(userId, categoryId)
             dialog.show(parentFragmentManager, "SimilarFragment")
         }
 
