@@ -1,10 +1,10 @@
 package com.example.bbasia
 
 data class ChartItem(
-    val rank: Int,
+    val id: String,
     val name: String,
-    val price: Int,
-    val critics: Int,
-    val money: Int,
-    val buy: Int,
+    val current_price: Int,
+    val updown_rate: Double,
+    val volume_power: Double,
+    val eq: Int,
 )

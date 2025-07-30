@@ -13,10 +13,10 @@
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/chart_news_good"
+            android:id="@+id/chart_news_good1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="☺️ 50%,"
+            android:text="☺️"
             android:textSize="13dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
@@ -27,6 +27,20 @@
             android:layout_marginTop="5dp"/>
 
         <TextView
+            android:id="@+id/chart_news_good2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50%,"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/chart_news_good1"
+            app:layout_constraintBottom_toTopOf="@id/chart_news_tv"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
             android:id="@+id/chart_news_bs1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,8 +48,8 @@
             android:textSize="12dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            app:layout_constraintTop_toTopOf="@id/chart_news_good"
-            app:layout_constraintStart_toEndOf="@id/chart_news_good"
+            app:layout_constraintTop_toTopOf="@id/chart_news_good2"
+            app:layout_constraintStart_toEndOf="@id/chart_news_good2"
             android:layout_marginStart="8dp"/>
 
         <TextView
@@ -46,7 +60,7 @@
             android:textSize="13dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            app:layout_constraintTop_toTopOf="@id/chart_news_good"
+            app:layout_constraintTop_toTopOf="@id/chart_news_good2"
             app:layout_constraintStart_toEndOf="@id/chart_news_bs1" />
 
         <TextView
@@ -56,8 +70,8 @@
             android:text="HD현대, 올 2분기 HD현대그룹 상장사 중 관심도 1위…현대중공업 뒤이어"
             android:textSize="12dp"
             android:textColor="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@id/chart_news_good"
-            app:layout_constraintStart_toStartOf="@id/chart_news_good"
+            app:layout_constraintTop_toBottomOf="@id/chart_news_good1"
+            app:layout_constraintStart_toStartOf="@id/chart_news_good1"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="5dp"/>
 
@@ -87,11 +101,14 @@
 
         <TextView
             android:id="@+id/chart_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="95dp"
+            android:layout_height="20dp"
             android:text="HD현대 중공업"
             android:textStyle="bold"
             android:textSize="14dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:singleLine="true"
             app:layout_constraintTop_toTopOf="@id/chart_num"
             app:layout_constraintStart_toEndOf="@id/chart_num"
             app:layout_constraintBottom_toTopOf="@id/chart_name_news"
@@ -125,41 +142,32 @@
             android:textStyle="bold"
             android:textSize="14dp"
             android:textColor="#005DFF"
-            app:layout_constraintStart_toEndOf="@id/chart_name"
+            android:gravity="right"
+            app:layout_constraintEnd_toStartOf="@id/chart_average_change"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="20dp"/>
+            android:layout_marginEnd="35dp"/>
 
         <TextView
-            android:id="@+id/chart_critics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="60,564"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@id/chart_now_price"
-            app:layout_constraintEnd_toStartOf="@id/chart_average_return"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <TextView
-            android:id="@+id/chart_average_return"
-            android:layout_width="wrap_content"
+            android:id="@+id/chart_average_change"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="514.2%"
             android:textStyle="bold"
             android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@id/chart_critics"
+            android:gravity="right"
             app:layout_constraintEnd_toStartOf="@id/chart_volume_power"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="20dp"/>
 
         <TextView
             android:id="@+id/chart_volume_power"
-            android:layout_width="wrap_content"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:text="40"
             android:textSize="14dp"
+            android:gravity="right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
